@@ -60,27 +60,30 @@ function getWeather(response) {
 
   let weatherIcon = document.querySelector("#weather-icon");
 
-  if (currentWeather === "Clear sky") {
+  if (currentWeather === "clear sky") {
     weatherIcon.innerHTML = "☀️";
   }
 
-  if (currentWeather === "Broken clouds") {
+  if (currentWeather === "broken clouds") {
     weatherIcon.innerHTML = "⛅";
   }
 
-  if (currentWeather === "Scattered clouds") {
+  if (
+    currentWeather === "scattered clouds" ||
+    currentWeather === "few clouds"
+  ) {
     weatherIcon.innerHTML = "🌤️";
   }
 
-  if (currentWeather === "Overcast clouds") {
+  if (currentWeather === "overcast clouds") {
     weatherIcon.innerHTML = "☁️";
   }
 
-  if (currentWeather === "Rain") {
+  if (currentWeather === "rain" || currentWeather === "light rain") {
     weatherIcon.innerHTML = "🌧️";
   }
 
-  if (currentWeather === "Fog") {
+  if (currentWeather === "fog") {
     weatherIcon.innerHTML = "🌫️";
   }
 
