@@ -50,38 +50,11 @@ function getWeather(response) {
   let currentWeather = response.data.weather[0].description;
   weatherElement.innerHTML = `${currentWeather}`;
 
-  let weatherIcon = document.querySelector("#weather-icon");
-
-  if (currentWeather === "clear sky") {
-    weatherIcon.innerHTML = "☀️";
-  }
-
-  if (currentWeather === "broken clouds") {
-    weatherIcon.innerHTML = "⛅";
-  }
-
-  if (
-    currentWeather === "scattered clouds" ||
-    currentWeather === "few clouds"
-  ) {
-    weatherIcon.innerHTML = "🌤️";
-  }
-
-  if (currentWeather === "overcast clouds") {
-    weatherIcon.innerHTML = "☁️";
-  }
-
-  if (currentWeather === "rain" || currentWeather === "light rain") {
-    weatherIcon.innerHTML = "🌧️";
-  }
-
-  if (currentWeather === "fog") {
-    weatherIcon.innerHTML = "🌫️";
-  }
-
-  if (currentWeather === "Snow") {
-    weatherIcon.innerHTML = "🌨️";
-  }
+  let iconElement = document.querySelector("#weather-icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 
   let tempFeelsLikeElement = document.querySelector("#temp-feels-like");
   tempFeelsLikeElement.innerHTML = `${Math.round(

@@ -13,10 +13,6 @@ body {
   border-radius: 5px;
 }
 
-hr {
-  margin: 10px auto;
-}
-
 .search-button {
   padding: 6px 15px;
 }
@@ -41,6 +37,7 @@ ul {
 a {
   text-decoration: none;
   color: #f9ae16;
+  font-weight: 500;
 }
 
 a:hover {
@@ -52,14 +49,21 @@ a:hover {
   padding-top: 10px;
 }
 
-#weather-icon {
-  font-size: 90px;
+img {
+  height: 132px;
+  position: relative;
+  right: 15px;
 }
 
 #weather {
+  font-weight: 500;
   text-transform: capitalize;
   position: relative;
-  bottom: 2px;
+  bottom: 25px;
+}
+
+hr {
+  margin: 10px auto;
 }
 
 .weather-details {
