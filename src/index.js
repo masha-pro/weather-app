@@ -54,29 +54,37 @@ function getWeather(response) {
   temperatureElement.innerHTML = `${currentTemperature}`;
 
   let weatherElement = document.querySelector("#weather");
-  let currentWeather = response.data.weather[0].main;
+  let currentWeather = response.data.weather[0].description;
   weatherElement.innerHTML =
     `${currentWeather}`.charAt(0).toUpperCase() + `${currentWeather}`.slice(1);
 
   let weatherIcon = document.querySelector("#weather-icon");
 
-  if (response.data.weather[0].main === "Clear") {
+  if (currentWeather === "Clear sky") {
     weatherIcon.innerHTML = "☀️";
   }
 
-  if (response.data.weather[0].main === "Clouds") {
+  if (currentWeather === "Broken clouds") {
+    weatherIcon.innerHTML = "⛅";
+  }
+
+  if (currentWeather === "Scattered clouds") {
+    weatherIcon.innerHTML = "🌤️";
+  }
+
+  if (currentWeather === "Overcast clouds") {
     weatherIcon.innerHTML = "☁️";
   }
 
-  if (response.data.weather[0].main === "Rain") {
+  if (currentWeather === "Rain") {
     weatherIcon.innerHTML = "🌧️";
   }
 
-  if (response.data.weather[0].main === "Fog") {
+  if (currentWeather === "Fog") {
     weatherIcon.innerHTML = "🌫️";
   }
 
-  if (response.data.weather[0].main === "Snow") {
+  if (currentWeather === "Snow") {
     weatherIcon.innerHTML = "🌨️";
   }
 
