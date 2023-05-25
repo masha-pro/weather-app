@@ -54,7 +54,7 @@ function getWeather(response) {
   temperatureElement.innerHTML = `${currentTemperature}`;
 
   let weatherElement = document.querySelector("#weather");
-  let currentWeather = response.data.weather[0].description;
+  let currentWeather = response.data.weather[0].main;
   weatherElement.innerHTML =
     `${currentWeather}`.charAt(0).toUpperCase() + `${currentWeather}`.slice(1);
 
