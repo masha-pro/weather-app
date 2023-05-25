@@ -55,8 +55,7 @@ function getWeather(response) {
 
   let weatherElement = document.querySelector("#weather");
   let currentWeather = response.data.weather[0].description;
-  weatherElement.innerHTML =
-    `${currentWeather}`.charAt(0).toUpperCase() + `${currentWeather}`.slice(1);
+  weatherElement.innerHTML = `${currentWeather}`;
 
   let weatherIcon = document.querySelector("#weather-icon");
 

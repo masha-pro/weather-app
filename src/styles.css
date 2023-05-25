@@ -53,6 +53,10 @@ a:hover {
   font-size: 90px;
 }
 
+#weather {
+  text-transform: capitalize;
+}
+
 .weather-details {
   font-size: 14px;
   margin: 15px 0;
