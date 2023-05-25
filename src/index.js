@@ -58,6 +58,11 @@ function getWeather(response) {
   weatherElement.innerHTML =
     `${currentWeather}`.charAt(0).toUpperCase() + `${currentWeather}`.slice(1);
 
+  let weatherIcon = document.querySelector("#weather-icon");
+  if (response.data.weather[0].main === "Clear") {
+    weatherIcon.innerHTML = "☀️";
+  }
+
   let tempFeelsLikeElement = document.querySelector("#temp-feels-like");
   let tempFeelsLike = Math.round(response.data.main.feels_like);
   tempFeelsLikeElement.innerHTML = `${tempFeelsLike}`;
