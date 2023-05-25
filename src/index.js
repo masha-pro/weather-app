@@ -46,12 +46,10 @@ function search(city) {
 
 function getWeather(response) {
   let cityElement = document.querySelector("#city");
-  let currentCity = response.data.name;
-  cityElement.innerHTML = `${currentCity}`;
+  cityElement.innerHTML = `${response.data.name}`;
 
   let temperatureElement = document.querySelector("#temperature");
-  let currentTemperature = Math.round(response.data.main.temp);
-  temperatureElement.innerHTML = `${currentTemperature}`;
+  temperatureElement.innerHTML = `${Math.round(response.data.main.temp)}`;
 
   let weatherElement = document.querySelector("#weather");
   let currentWeather = response.data.weather[0].description;
@@ -91,31 +89,28 @@ function getWeather(response) {
   }
 
   let tempFeelsLikeElement = document.querySelector("#temp-feels-like");
-  let tempFeelsLike = Math.round(response.data.main.feels_like);
-  tempFeelsLikeElement.innerHTML = `${tempFeelsLike}`;
+  tempFeelsLikeElement.innerHTML = `${Math.round(
+    response.data.main.feels_like
+  )}`;
 
   let windSpeedElement = document.querySelector("#wind-speed");
-  let windSpeed = Math.round(response.data.wind.speed);
-  windSpeedElement.innerHTML = `${windSpeed}`;
+  windSpeedElement.innerHTML = `${Math.round(response.data.wind.speed)}`;
 
   let humidityElement = document.querySelector("#humidity");
-  let humidity = Math.round(response.data.main.humidity);
-  humidityElement.innerHTML = `${humidity}`;
+  humidityElement.innerHTML = `${Math.round(response.data.main.humidity)}`;
 
   let pressureElement = document.querySelector("#pressure");
-  let pressure = Math.round(response.data.main.pressure);
-  pressureElement.innerHTML = `${pressure}`;
+  pressureElement.innerHTML = `${Math.round(response.data.main.pressure)}`;
 
   let maxTempElement = document.querySelector("#max-temp");
-  let maxTemp = Math.round(response.data.main.temp_max);
-  maxTempElement.innerHTML = `${maxTemp}`;
+  maxTempElement.innerHTML = `${Math.round(response.data.main.temp_max)}`;
 
   let minTempElement = document.querySelector("#min-temp");
-  let minTemp = Math.round(response.data.main.temp_min);
-  minTempElement.innerHTML = `${minTemp}`;
+  minTempElement.innerHTML = `${Math.round(response.data.main.temp_min)}`;
 }
 
 // Current Location
+
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentPosition);
 
