@@ -27,11 +27,17 @@ time.innerHTML = todayTime(new Date());
 // Get Weather
 
 let searchEngine = document.querySelector("#search-engine");
-searchEngine.addEventListener("submit", searchWeather);
+searchEngine.addEventListener("submit", handleSubmit);
 
-function searchWeather(event) {
+function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input").value;
+  search(city);
+}
+
+search("Kharkiv");
+
+function search(city) {
   let apiKey = "0dc40d3d7cda209ca40e77430c74cf57";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
