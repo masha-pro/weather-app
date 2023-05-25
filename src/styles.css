@@ -43,8 +43,9 @@ a:hover {
   text-decoration: underline;
 }
 
-.time {
+.last-updated {
   font-size: 16px;
+  font-weight: 300;
   padding-left: 2px;
   padding-top: 10px;
 }

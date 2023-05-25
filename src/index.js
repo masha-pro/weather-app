@@ -1,8 +1,7 @@
 // Display time
 
-function todayTime() {
-  let now = new Date();
-
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -12,19 +11,12 @@ function todayTime() {
     "Friday",
     "Saturday",
   ];
+  let day = days[date.getDay()];
+  let hours = date.getHours();
+  let minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
 
-  let day = days[now.getDay()];
-  let hours = now.getHours();
-  let minutes = (now.getMinutes() < 10 ? "0" : "") + now.getMinutes();
-
-  let currentTime = `${day} ${hours}:${minutes}`;
-  return currentTime;
+  return `${day} ${hours}:${minutes}`;
 }
-
-let time = document.querySelector(".time");
-time.innerHTML = todayTime(new Date());
-
-// Get Weather
 
 let searchEngine = document.querySelector("#search-engine");
 searchEngine.addEventListener("submit", handleSubmit);
@@ -50,6 +42,9 @@ function getWeather(response) {
 
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${Math.round(response.data.main.temp)}`;
+
+  dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
   let weatherElement = document.querySelector("#weather");
   let currentWeather = response.data.weather[0].description;
