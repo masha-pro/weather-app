@@ -36,6 +36,11 @@ ul {
 
 a {
   text-decoration: none;
+  color: #f9ae16;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .time {
@@ -79,5 +84,5 @@ a {
 footer {
   font-size: 14px;
   margin-top: 10px;
-  font-weight: lighter;
+  font-weight: 300;
 }
