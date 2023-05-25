@@ -13,6 +13,10 @@ body {
   border-radius: 5px;
 }
 
+hr {
+  margin: 10px auto;
+}
+
 .search-button {
   padding: 6px 15px;
 }
@@ -44,9 +48,7 @@ a:hover {
 }
 
 .last-updated {
-  font-size: 16px;
-  font-weight: 300;
-  padding-left: 2px;
+  font-size: 14px;
   padding-top: 10px;
 }
 
@@ -56,6 +58,8 @@ a:hover {
 
 #weather {
   text-transform: capitalize;
+  position: relative;
+  bottom: 2px;
 }
 
 .weather-details {
