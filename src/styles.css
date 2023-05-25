@@ -1,0 +1,72 @@
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+.container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 25px;
+  border: 1px solid #e8e5f0;
+  border-radius: 5px;
+}
+
+.search-button {
+  padding: 6px 15px;
+}
+
+ul {
+  font-size: 46px;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-bottom: 0;
+  list-style: none;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.degrees {
+  font-size: 20px;
+  position: relative;
+  top: -20px;
+  right: 8px;
+}
+
+.time {
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 2px;
+  padding-top: 10px;
+}
+
+.weather-icon {
+  font-size: 90px;
+}
+
+.details {
+  font-size: 16px;
+  font-weight: 200;
+  margin: 15px 0;
+}
+
+.daily-header {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 20px 0 10px;
+}
+
+.daily-forecast {
+  text-align: center;
+}
+
+.forecast-icons {
+  font-size: 36px;
+}
+
+.forecast-days {
+  font-size: 18px;
+}
+
+.forecast-prec,
+.forecast-temp {
+  font-size: 14px;
+}
