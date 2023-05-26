@@ -26,6 +26,7 @@ function getWeather(response) {
 
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${Math.round(response.data.main.temp)}`;
+  celciusTemperature = Math.round(response.data.main.temp);
 
   dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
@@ -75,15 +76,6 @@ function handleSubmit(event) {
   search(city);
 }
 
-function showFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let fahrenheitTemperature = Math.round(
-    (temperatureElement.innerHTML * 9) / 5 + 32
-  );
-  temperatureElement.innerHTML = fahrenheitTemperature;
-}
-
 // Current Location
 
 function getCurrentPosition() {
@@ -104,12 +96,30 @@ function getLocation(position) {
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentPosition);
 
-let celciusTemperature;
+// Conversion C-F
 
-let searchEngine = document.querySelector("#search-engine");
-searchEngine.addEventListener("submit", handleSubmit);
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let fahrenheitTemperature = Math.round((celciusTemperature * 9) / 5 + 32);
+  temperatureElement.innerHTML = fahrenheitTemperature;
+}
+
+function showCelciusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = celciusTemperature;
+}
+
+let celciusTemperature = null;
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", showCelciusTemperature);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let searchEngine = document.querySelector("#search-engine");
+searchEngine.addEventListener("submit", handleSubmit);
 
 search("Kharkiv");
