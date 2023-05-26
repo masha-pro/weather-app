@@ -46,6 +46,7 @@ function getWeather(response) {
   tempFeelsLikeElement.innerHTML = `${Math.round(
     response.data.main.feels_like
   )}`;
+  feelsLikeCelciusTemperature = Math.round(response.data.main.feels_like);
 
   let windSpeedElement = document.querySelector("#wind-speed");
   windSpeedElement.innerHTML = `${Math.round(response.data.wind.speed)}`;
@@ -58,9 +59,11 @@ function getWeather(response) {
 
   let maxTempElement = document.querySelector("#max-temp");
   maxTempElement.innerHTML = `${Math.round(response.data.main.temp_max)}`;
+  maxCelciusTemperature = Math.round(response.data.main.temp_max);
 
   let minTempElement = document.querySelector("#min-temp");
   minTempElement.innerHTML = `${Math.round(response.data.main.temp_min)}`;
+  minCelciusTemperature = Math.round(response.data.main.temp_min);
 }
 
 function search(city) {
@@ -93,27 +96,57 @@ function getLocation(position) {
   axios.get(apiUrl).then(getWeather);
 }
 
-let currentButton = document.querySelector("#current-location-button");
-currentButton.addEventListener("click", getCurrentPosition);
-
 // Conversion C-F
 
 function showFahrenheitTemperature(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
+
   celciusLink.classList.remove("inactive");
   fahrenheitLink.classList.add("inactive");
+
+  let temperatureElement = document.querySelector("#temperature");
   let fahrenheitTemperature = Math.round((celciusTemperature * 9) / 5 + 32);
   temperatureElement.innerHTML = fahrenheitTemperature;
+
+  let feelsLikeTempElement = document.querySelector("#temp-feels-like");
+  let feelsLikeFahrenheitTemperature = Math.round(
+    (feelsLikeCelciusTemperature * 9) / 5 + 32
+  );
+  feelsLikeTempElement.innerHTML = feelsLikeFahrenheitTemperature;
+
+  let maxTempElement = document.querySelector("#max-temp");
+  let maxFahrenheitTemperature = Math.round(
+    (maxCelciusTemperature * 9) / 5 + 32
+  );
+  maxTempElement.innerHTML = maxFahrenheitTemperature;
+
+  let minTempElement = document.querySelector("#min-temp");
+  let minFahrenheitTemperature = Math.round(
+    (minCelciusTemperature * 9) / 5 + 32
+  );
+  minTempElement.innerHTML = minFahrenheitTemperature;
 }
 
 function showCelciusTemperature(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
+
   celciusLink.classList.add("inactive");
   fahrenheitLink.classList.remove("inactive");
+
+  let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = celciusTemperature;
+
+  let maxTempElement = document.querySelector("#max-temp");
+  maxTempElement.innerHTML = maxCelciusTemperature;
+
+  let minTempElement = document.querySelector("#min-temp");
+  minTempElement.innerHTML = minCelciusTemperature;
+
+  let feelsLikeTempElement = document.querySelector("#temp-feels-like");
+  feelsLikeTempElement.innerHTML = feelsLikeCelciusTemperature;
 }
+
+// General variables
 
 let celciusTemperature = null;
 
@@ -122,6 +155,9 @@ celciusLink.addEventListener("click", showCelciusTemperature);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let currentButton = document.querySelector("#current-location-button");
+currentButton.addEventListener("click", getCurrentPosition);
 
 let searchEngine = document.querySelector("#search-engine");
 searchEngine.addEventListener("submit", handleSubmit);
