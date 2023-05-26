@@ -2,6 +2,22 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
+a {
+  color: #f9ae16;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+hr {
+  margin: 10px auto;
+}
+
+footer {
+  font-size: 14px;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
 .container {
   max-width: 700px;
   margin: 60px auto 0;
@@ -17,7 +33,7 @@ body {
   padding: 6px 15px;
 }
 
-ul {
+ul.summary {
   font-size: 46px;
   font-weight: 500;
   margin-top: 15px;
@@ -34,10 +50,10 @@ ul {
   right: 8px;
 }
 
-a {
-  color: #f9ae16;
-  font-weight: 500;
-  text-decoration: none;
+.last-updated {
+  font-size: 14px;
+  padding-top: 10px;
+  opacity: 0.7;
 }
 
 .inactive {
@@ -46,12 +62,7 @@ a {
   text-decoration: none;
 }
 
-.last-updated {
-  font-size: 14px;
-  padding-top: 10px;
-}
-
-img {
+#weather-icon {
   height: 132px;
   display: block;
   margin-left: auto;
@@ -70,13 +81,12 @@ img {
   right: 42px;
 }
 
-hr {
-  margin: 10px auto;
-}
-
-.weather-details {
+.details {
   font-size: 14px;
   margin: 15px 0;
+  list-style: none;
+  padding: 0;
+  margin: 5px 0;
 }
 
 .daily-header {
@@ -89,21 +99,11 @@ hr {
   text-align: center;
 }
 
-.forecast-icons {
-  font-size: 36px;
-}
-
-.forecast-days {
-  font-size: 16px;
-}
-
-.forecast-prec,
-.forecast-temp {
-  font-size: 12px;
-}
-
-footer {
+.daily-forecast-date,
+.daily-forecast-temp {
   font-size: 14px;
-  margin-top: 10px;
-  font-weight: 300;
+}
+
+.daily-forecast-temp-min {
+  opacity: 0.5;
 }

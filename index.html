@@ -35,6 +35,7 @@
                   id="search-input"
                 />
               </div>
+
               <div class="col-2">
                 <button
                   type="submit"
@@ -44,6 +45,7 @@
                   Search
                 </button>
               </div>
+
               <div class="col-3">
                 <button
                   type="button"
@@ -60,7 +62,7 @@
         <section class="weather-summary">
           <div class="row">
             <div class="col-8">
-              <ul>
+              <ul class="summary">
                 <li id="city"></li>
                 <li>
                   <span id="temperature"></span>
@@ -76,6 +78,7 @@
                 </li>
               </ul>
             </div>
+
             <div class="col-4">
               <img src="" alt="icon" id="weather-icon" />
               <div id="weather"></div>
@@ -88,21 +91,34 @@
         <section class="weather-details">
           <div class="row">
             <div class="col-4">
-              Feels like: <span id="temp-feels-like"></span
-              ><span id="feels-like-degree">°C</span>
+              <ul class="details">
+                <li>
+                  Feels like:
+                  <span id="temp-feels-like"></span
+                  ><span id="feels-like-degree">°C</span>
+                </li>
+                <li>Wind Speed: <span id="wind-speed"></span> km/h</li>
+              </ul>
             </div>
-            <div class="col-4">Humidity: <span id="humidity"></span>%</div>
+
             <div class="col-4">
-              Max Temperature: <span id="max-temp"></span
-              ><span id="max-temp-degree">°C</span>
+              <ul class="details">
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Pressure: <span id="pressure"></span> mb</li>
+              </ul>
             </div>
+
             <div class="col-4">
-              Wind Speed: <span id="wind-speed"></span> km/h
-            </div>
-            <div class="col-4">Pressure: <span id="pressure"></span> mb</div>
-            <div class="col-4">
-              Min Temperature: <span id="min-temp"></span
-              ><span id="min-temp-degree">°C</span>
+              <ul class="details">
+                <li>
+                  Max Temperature: <span id="max-temp"></span
+                  ><span id="max-temp-degree">°C</span>
+                </li>
+                <li>
+                  Min Temperature: <span id="min-temp"></span
+                  ><span id="min-temp-degree">°C</span>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
@@ -111,37 +127,20 @@
 
         <div class="daily-header">Daily Forecast</div>
         <section class="daily-forecast">
-          <div class="row forecast-icons gx-0">
-            <div class="col-2">🌤️</div>
-            <div class="col-2">☁️</div>
-            <div class="col-2">🌧️</div>
-            <div class="col-2">🌧️</div>
-            <div class="col-2">⛅</div>
-            <div class="col-2">☀️</div>
-          </div>
-          <div class="row forecast-days gx-0">
-            <div class="col-2">Wed 10</div>
-            <div class="col-2">Thu 11</div>
-            <div class="col-2">Fri 12</div>
-            <div class="col-2">Sat 13</div>
-            <div class="col-2">Sun 14</div>
-            <div class="col-2">Mon 15</div>
-          </div>
-          <div class="row forecast-prec gx-0">
-            <div class="col-2">Mostly Sunny</div>
-            <div class="col-2">Cloudy</div>
-            <div class="col-2">Rainy</div>
-            <div class="col-2">Rainy</div>
-            <div class="col-2">Mostly Cloudy</div>
-            <div class="col-2">Sunny</div>
-          </div>
-          <div class="row forecast-temp gx-0">
-            <div class="col-2">17°C</div>
-            <div class="col-2">16°C</div>
-            <div class="col-2">13°C</div>
-            <div class="col-2">12°C</div>
-            <div class="col-2">14°C</div>
-            <div class="col-2">20°C</div>
+          <div class="row gx-0">
+            <div class="col-2">
+              <div class="daily-forecast-date">Wed 10</div>
+              <img
+                src="https://openweathermap.org/img/wn/03d@2x.png"
+                alt=""
+                width="70"
+                class="daily-forecast-icon"
+              />
+              <div class="daily-forecast-temp">
+                <span class="daily-forecast-temp-max">17°</span>
+                <span class="daily-forecast-temp-min">14°</span>
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -155,7 +154,6 @@
         </div>
       </footer>
     </div>
-
     <script src="src/index.js"></script>
   </body>
 </html>
