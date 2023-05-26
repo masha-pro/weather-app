@@ -18,23 +18,7 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-let searchEngine = document.querySelector("#search-engine");
-searchEngine.addEventListener("submit", handleSubmit);
-
-function handleSubmit(event) {
-  event.preventDefault();
-  let city = document.querySelector("#search-input").value;
-  search(city);
-}
-
-search("Kharkiv");
-
-function search(city) {
-  let apiKey = "0dc40d3d7cda209ca40e77430c74cf57";
-  let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-  axios.get(apiUrl).then(getWeather);
-}
+// Display Weather
 
 function getWeather(response) {
   let cityElement = document.querySelector("#city");
@@ -78,10 +62,29 @@ function getWeather(response) {
   minTempElement.innerHTML = `${Math.round(response.data.main.temp_min)}`;
 }
 
-// Current Location
+function search(city) {
+  let apiKey = "0dc40d3d7cda209ca40e77430c74cf57";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
+  axios.get(apiUrl).then(getWeather);
+}
 
-let currentButton = document.querySelector("#current-location-button");
-currentButton.addEventListener("click", getCurrentPosition);
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#search-input").value;
+  search(city);
+}
+
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let fahrenheitTemperature = Math.round(
+    (temperatureElement.innerHTML * 9) / 5 + 32
+  );
+  temperatureElement.innerHTML = fahrenheitTemperature;
+}
+
+// Current Location
 
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(getLocation);
@@ -97,3 +100,16 @@ function getLocation(position) {
 
   axios.get(apiUrl).then(getWeather);
 }
+
+let currentButton = document.querySelector("#current-location-button");
+currentButton.addEventListener("click", getCurrentPosition);
+
+let celciusTemperature;
+
+let searchEngine = document.querySelector("#search-engine");
+searchEngine.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+search("Kharkiv");
