@@ -35,13 +35,15 @@ ul {
 }
 
 a {
-  text-decoration: none;
   color: #f9ae16;
   font-weight: 500;
+  text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+.inactive {
+  color: black;
+  cursor: default;
+  text-decoration: none;
 }
 
 .last-updated {
