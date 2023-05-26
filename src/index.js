@@ -125,6 +125,15 @@ function showFahrenheitTemperature(event) {
     (minCelciusTemperature * 9) / 5 + 32
   );
   minTempElement.innerHTML = minFahrenheitTemperature;
+
+  let feelsLikeDegreeElement = document.querySelector("#feels-like-degree");
+  feelsLikeDegreeElement.innerHTML = `°F`;
+
+  let minTempDegreeElement = document.querySelector("#min-temp-degree");
+  minTempDegreeElement.innerHTML = `°F`;
+
+  let maxTempDegreeElement = document.querySelector("#max-temp-degree");
+  maxTempDegreeElement.innerHTML = `°F`;
 }
 
 function showCelciusTemperature(event) {
@@ -144,6 +153,15 @@ function showCelciusTemperature(event) {
 
   let feelsLikeTempElement = document.querySelector("#temp-feels-like");
   feelsLikeTempElement.innerHTML = feelsLikeCelciusTemperature;
+
+  let feelsLikeDegreeElement = document.querySelector("#feels-like-degree");
+  feelsLikeDegreeElement.innerHTML = `°C`;
+
+  let maxTempDegreeElement = document.querySelector("#max-temp-degree");
+  maxTempDegreeElement.innerHTML = `°C`;
+
+  let minTempDegreeElement = document.querySelector("#min-temp-degree");
+  minTempDegreeElement.innerHTML = `°C`;
 }
 
 // General variables
