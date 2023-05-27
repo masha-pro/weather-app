@@ -98,6 +98,10 @@ ul.summary {
   font-size: 14px;
 }
 
+.daily-forecast-date {
+  opacity: 0.5;
+}
+
 .daily-forecast-temp-min {
   opacity: 0.5;
 }
