@@ -73,7 +73,6 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "743bee57fddbfaf52447193a87d5dd25";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=${units}&appid=${apiKey}`;
@@ -160,83 +159,7 @@ function getLocation(position) {
   axios.get(apiUrl).then(getWeather);
 }
 
-// Conversion Celcius-Fahrenheit
-
-function showFahrenheitTemperature(event) {
-  event.preventDefault();
-
-  celciusLink.classList.remove("inactive");
-  fahrenheitLink.classList.add("inactive");
-
-  let temperatureElement = document.querySelector("#temperature");
-  let fahrenheitTemperature = Math.round((celciusTemperature * 9) / 5 + 32);
-  temperatureElement.innerHTML = fahrenheitTemperature;
-
-  let feelsLikeTempElement = document.querySelector("#temp-feels-like");
-  let feelsLikeFahrenheitTemperature = Math.round(
-    (feelsLikeCelciusTemperature * 9) / 5 + 32
-  );
-  feelsLikeTempElement.innerHTML = feelsLikeFahrenheitTemperature;
-
-  let maxTempElement = document.querySelector("#max-temp");
-  let maxFahrenheitTemperature = Math.round(
-    (maxCelciusTemperature * 9) / 5 + 32
-  );
-  maxTempElement.innerHTML = maxFahrenheitTemperature;
-
-  let minTempElement = document.querySelector("#min-temp");
-  let minFahrenheitTemperature = Math.round(
-    (minCelciusTemperature * 9) / 5 + 32
-  );
-  minTempElement.innerHTML = minFahrenheitTemperature;
-
-  let feelsLikeDegreeElement = document.querySelector("#feels-like-degree");
-  feelsLikeDegreeElement.innerHTML = `°F`;
-
-  let minTempDegreeElement = document.querySelector("#min-temp-degree");
-  minTempDegreeElement.innerHTML = `°F`;
-
-  let maxTempDegreeElement = document.querySelector("#max-temp-degree");
-  maxTempDegreeElement.innerHTML = `°F`;
-}
-
-function showCelciusTemperature(event) {
-  event.preventDefault();
-
-  celciusLink.classList.add("inactive");
-  fahrenheitLink.classList.remove("inactive");
-
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = celciusTemperature;
-
-  let maxTempElement = document.querySelector("#max-temp");
-  maxTempElement.innerHTML = maxCelciusTemperature;
-
-  let minTempElement = document.querySelector("#min-temp");
-  minTempElement.innerHTML = minCelciusTemperature;
-
-  let feelsLikeTempElement = document.querySelector("#temp-feels-like");
-  feelsLikeTempElement.innerHTML = feelsLikeCelciusTemperature;
-
-  let feelsLikeDegreeElement = document.querySelector("#feels-like-degree");
-  feelsLikeDegreeElement.innerHTML = `°C`;
-
-  let maxTempDegreeElement = document.querySelector("#max-temp-degree");
-  maxTempDegreeElement.innerHTML = `°C`;
-
-  let minTempDegreeElement = document.querySelector("#min-temp-degree");
-  minTempDegreeElement.innerHTML = `°C`;
-}
-
 // General variables
-
-let celciusTemperature = null;
-
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", showCelciusTemperature);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentPosition);

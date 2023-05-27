@@ -56,12 +56,6 @@ ul.summary {
   opacity: 0.7;
 }
 
-.inactive {
-  color: black;
-  cursor: default;
-  text-decoration: none;
-}
-
 #weather-icon {
   height: 132px;
   display: block;
